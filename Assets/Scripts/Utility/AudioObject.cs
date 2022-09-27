@@ -26,7 +26,6 @@ namespace AudioManaging
         {
             m_pool = _pool;
             m_source = GetComponent<AudioSource>();
-            Deactivate();
         }
 
         public void Reset()
