@@ -5,28 +5,30 @@ using AudioManaging;
 
 public class GenerateAudio : MonoBehaviour
 {
-    [SerializeField] NotifySoundCollection m_soundRequest;
+    [SerializeField] NotifyEntitySoundCollection m_sndRequests;
+
+    private ESources m_src = ESources.PLAYER;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            m_soundRequest.Add(AudioRequest<ESources,ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.WALK, transform));
+            m_sndRequests.Add(EntityAudioRequest.Request(m_src, ESoundTypes.WALK, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.ATTACK1, transform));
+            m_sndRequests.Add(EntityAudioRequest.Request(m_src, ESoundTypes.ATTACK1, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.JUMP, transform));
+            m_sndRequests.Add(EntityAudioRequest.Request(m_src, ESoundTypes.JUMP, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.CLICK, transform));
+            m_sndRequests.Add(EntityAudioRequest.Request(m_src, ESoundTypes.CLICK, transform));
         }
     }
 }
