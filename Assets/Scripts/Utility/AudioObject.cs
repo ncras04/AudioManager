@@ -25,7 +25,8 @@ namespace Audio
         public void Initialize(AudioObjectPool _pool)
         {
             m_pool = _pool;
-            m_source.GetComponent<AudioSource>();
+            m_source = GetComponent<AudioSource>();
+            Deactivate();
         }
 
         public void Reset()

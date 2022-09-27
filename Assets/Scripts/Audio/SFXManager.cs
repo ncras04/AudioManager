@@ -34,7 +34,7 @@ namespace Audio
 
             DontDestroyOnLoad(this.gameObject);
 
-            m_pool = new AudioObjectPool(m_audioObjectPrefab, m_poolSize);
+            m_pool = new AudioObjectPool(m_audioObjectPrefab, m_poolSize, transform);
 
             foreach (ClipCollection ClipCollection in m_clipCollections)
             {

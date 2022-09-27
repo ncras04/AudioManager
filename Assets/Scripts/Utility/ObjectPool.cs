@@ -6,10 +6,10 @@ namespace Audio
 {
     public class AudioObjectPool
     {
-        public AudioObjectPool(GameObject _prefab, int _size)
+        public AudioObjectPool(GameObject _prefab, int _size, Transform _parent)
         {
             m_prefab = _prefab;
-            InitPool(_size);
+            InitPool(_size, _parent);
         }
 
         private Transform m_parent;
@@ -39,11 +39,13 @@ namespace Audio
             m_queue.Enqueue(_item);
         }
 
-        private void InitPool(int _size)
+        private void InitPool(int _size, Transform _parent)
         {
             for (int i = 0; i < _size; i++)
             {
-                m_queue.Enqueue(GameObject.Instantiate(m_prefab).GetComponent<AudioObject>());
+                AudioObject tmp = GameObject.Instantiate(m_prefab, _parent).GetComponent<AudioObject>();
+                tmp.Initialize(this);
+                m_queue.Enqueue(tmp);
             }
         }
     } 

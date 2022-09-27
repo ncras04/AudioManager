@@ -9,22 +9,22 @@ public class GenerateAudio : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.A))
         {
             m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.ATTACK1, transform));
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.ATTACK2, transform));
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.JUMP, transform));
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.CLICK, transform));
         }
