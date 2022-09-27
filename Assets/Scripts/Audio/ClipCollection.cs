@@ -21,6 +21,7 @@ namespace Audio
                 {
                     foreach (Type Type in System.Enum.GetValues(typeof(Type)))
                     {
+                        //TODO: wenns richtig abfragt, dann haben wir gewonnen
                         if (EqualityComparer<Type>.Default.Equals(Library.Type, Type));
                         {
                             tmp.Add(Type, Library);
