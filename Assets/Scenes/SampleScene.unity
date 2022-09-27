@@ -157,7 +157,7 @@ MonoBehaviour:
   m_poolSize: 20
   m_audioObjectPrefab: {fileID: 817261557255131675, guid: 01815ba0c25742b4aabcb4396ac44572, type: 3}
   m_clipCollections:
-  - {fileID: 11400000, guid: cbe5d13637208ba48ab3ccf90bda2905, type: 2}
+  - {fileID: 11400000, guid: 770d3c7bbab054347b480a83a2dcf415, type: 2}
 --- !u!4 &630146240
 Transform:
   m_ObjectHideFlags: 0

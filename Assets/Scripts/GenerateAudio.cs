@@ -16,7 +16,7 @@ public class GenerateAudio : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.ATTACK2, transform));
+            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.ATTACK1, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.D))

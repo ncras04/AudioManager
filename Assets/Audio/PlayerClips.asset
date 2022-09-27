@@ -19,3 +19,18 @@ MonoBehaviour:
       m_volume: 1
       m_audioClips:
       - {fileID: 8300000, guid: 69d2eadf125842d4cbf7dd441fd0bee1, type: 3}
+  - m_type: 2
+    m_fileReference:
+      m_volume: 1
+      m_audioClips:
+      - {fileID: 8300000, guid: a03b4e23f4c4e024b9b72951f22340ff, type: 3}
+  - m_type: 1
+    m_fileReference:
+      m_volume: 1
+      m_audioClips:
+      - {fileID: 8300000, guid: 3220d746a3e45f34da6aacf483abb74a, type: 3}
+  - m_type: 4
+    m_fileReference:
+      m_volume: 1
+      m_audioClips:
+      - {fileID: 8300000, guid: da320d191baa89042b12ffae293d0b74, type: 3}
