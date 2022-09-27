@@ -51,7 +51,7 @@ namespace AudioManaging
             m_soundRequest.OnAdd += OnSoundRequest;
         }
 
-        private void OnSoundRequest(SoundRequest _request)
+        private void OnSoundRequest(AudioRequest<ESources,ESoundTypes> _request)
         {
             AudioObject tmp = m_pool.GetItem();
             AudioSource tmpSource = tmp.Source;

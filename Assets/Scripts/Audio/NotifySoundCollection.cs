@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AudioManaging
 {
     [CreateAssetMenu(fileName = "NotifySoundCollection", menuName = "Audio/New NotifySound", order = 0)]
-    public class NotifySoundCollection : NotifyCollection<SoundRequest>
+    public class NotifySoundCollection : NotifyCollection<AudioRequest<ESources,ESoundTypes>>
     {
 
     } 

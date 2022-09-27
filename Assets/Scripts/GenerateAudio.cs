@@ -11,22 +11,22 @@ public class GenerateAudio : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.WALK, transform));
+            m_soundRequest.Add(AudioRequest<ESources,ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.WALK, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.ATTACK1, transform));
+            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.ATTACK1, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.JUMP, transform));
+            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.JUMP, transform));
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            m_soundRequest.Add(SoundRequest.Request(ESources.PLAYER, ESoundTypes.CLICK, transform));
+            m_soundRequest.Add(AudioRequest<ESources, ESoundTypes>.Request(ESources.PLAYER, ESoundTypes.CLICK, transform));
         }
     }
 }
