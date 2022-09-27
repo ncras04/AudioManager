@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 
-namespace Audio
+namespace AudioManaging
 {
     public class AudioObject : MonoBehaviour, IPoolable
     {

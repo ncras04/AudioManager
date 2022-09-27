@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Audio
+namespace AudioManaging
 {
     public class ClipCollection<ESource,EType> : ScriptableObject where ESource : System.Enum where EType : System.Enum
     {

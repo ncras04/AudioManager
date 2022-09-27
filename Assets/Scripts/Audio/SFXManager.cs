@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Audio
+namespace AudioManaging
 {
     public class SFXManager : MonoBehaviour
     {
