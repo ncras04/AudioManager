@@ -4,27 +4,26 @@ using UnityEngine;
 
 namespace Audio
 {
-    [CreateAssetMenu(fileName = "ClipCollection", menuName = "Audio/New ClipCollection", order = 0)]
-    public class ClipCollection : ScriptableObject
+    public class ClipCollection<Emitter,Type> : ScriptableObject where Emitter : System.Enum where Type : System.Enum
     {
-        public ESources Source => m_soundSouce;
+        public Emitter Source => m_soundSouce;
 
-        [SerializeField] private ESources m_soundSouce;
+        [SerializeField] private Emitter m_soundSouce;
 
-        [SerializeField] private List<ClipLibrary> m_clipLibrary = new List<ClipLibrary>();
+        [SerializeField] private List<ClipLibrary<Type>> m_clipLibrary = new List<ClipLibrary<Type>>();
 
-        public Dictionary<ESoundTypes, ClipLibrary> Collection
+        public Dictionary<Type, ClipLibrary<Type>> Collection
         {
             get
             {
-                Dictionary<ESoundTypes, ClipLibrary> tmp = new Dictionary<ESoundTypes, ClipLibrary>();
-                foreach (var SoundFile in m_clipLibrary)
+                Dictionary<Type, ClipLibrary<Type>> tmp = new Dictionary<Type, ClipLibrary<Type>>();
+                foreach (ClipLibrary<Type> Library in m_clipLibrary)
                 {
-                    foreach (ESoundTypes Type in System.Enum.GetValues(typeof(ESoundTypes)))
+                    foreach (Type Type in System.Enum.GetValues(typeof(Type)))
                     {
-                        if (SoundFile.Type == Type)
+                        if (EqualityComparer<Type>.Default.Equals(Library.Type, Type));
                         {
-                            tmp.Add(Type, SoundFile);
+                            tmp.Add(Type, Library);
                             break;
                         }
                     }

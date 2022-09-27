@@ -6,14 +6,14 @@ using System;
 namespace Audio
 {
     [Serializable]
-    public class ClipLibrary
+    public class ClipLibrary<T> where T : System.Enum
     {
         public AudioClip[] FileList => m_fileReference.AudioClips;
         public float Volume => m_fileReference.Volume;
 
-        public ESoundTypes Type => m_type;
+        public T Type => m_type;
 
-        [SerializeField] private ESoundTypes m_type;
+        [SerializeField] private T m_type;
         [SerializeField] private FileVolumeReference m_fileReference;
 
         [Serializable]

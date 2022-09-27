@@ -16,10 +16,10 @@ namespace Audio
         [SerializeField] private int m_poolSize;
         [SerializeField] private GameObject m_audioObjectPrefab;
         
-        [SerializeField] private List<ClipCollection> m_clipCollections = new List<ClipCollection>();
+        [SerializeField] private List<ClipCollection<ESources,ESoundTypes>> m_clipCollections = new List<ClipCollection<ESources, ESoundTypes>>();
 
 
-        private Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary>> m_clipCollectionDictionaries = new Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary>>();
+        private Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary<ESoundTypes>>> m_clipCollectionDictionaries = new Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary<ESoundTypes>>>();
 
         private AudioObjectPool m_pool;
         private void Awake()
@@ -36,7 +36,7 @@ namespace Audio
 
             m_pool = new AudioObjectPool(m_audioObjectPrefab, m_poolSize, transform);
 
-            foreach (ClipCollection ClipCollection in m_clipCollections)
+            foreach (ClipCollection<ESources, ESoundTypes> ClipCollection in m_clipCollections)
             {
                 foreach (ESources Source in System.Enum.GetValues(typeof(ESources)))
                 {
@@ -55,7 +55,7 @@ namespace Audio
         {
             AudioObject tmp = m_pool.GetItem();
             AudioSource tmpSource = tmp.Source;
-            ClipLibrary library = m_clipCollectionDictionaries[_request.Source][_request.Type];
+            ClipLibrary<ESoundTypes> library = m_clipCollectionDictionaries[_request.Source][_request.Type];
             tmp.name = $"{_request.Source} {_request.Type}-Sound";
 
             tmp.transform.parent = _request.Parent;
@@ -72,7 +72,5 @@ namespace Audio
 
             m_soundRequest.Remove(_request);
         }
-        
-
     } 
 }
