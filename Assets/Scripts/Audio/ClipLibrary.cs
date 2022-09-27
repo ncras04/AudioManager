@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using System;
 
 namespace Audio
@@ -11,6 +10,8 @@ namespace Audio
     {
         public AudioClip[] FileList => m_fileReference.AudioClips;
         public float Volume => m_fileReference.Volume;
+
+        public ESoundTypes Type => m_type;
 
         [SerializeField] private ESoundTypes m_type;
         [SerializeField] private FileVolumeReference m_fileReference;
