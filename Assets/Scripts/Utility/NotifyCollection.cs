@@ -7,6 +7,8 @@ public class NotifyCollection<T> : ScriptableObject
 {
     private List<T> m_data = new List<T>();
 
+    public List<T> Data => new List<T>(m_data);
+
     private event Action<T> m_onAdd;
     private event Action<T> m_onRemove;
 

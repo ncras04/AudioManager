@@ -5,7 +5,7 @@ using AudioManaging;
 
 public class GenerateAudio : MonoBehaviour
 {
-    [SerializeField] NotifyEntitySoundCollection m_sndRequests;
+    [SerializeField] NotifyEntityRequestCollection m_sndRequests;
 
     private ESources m_src = ESources.PLAYER;
 

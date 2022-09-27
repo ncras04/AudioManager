@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace AudioManaging
 {
-    public class AudioObjectPool
+    public class ObjectPool<T> where T : MonoBehaviour, IPoolable<T>
     {
-        public AudioObjectPool(GameObject _prefab, int _size, Transform _parent)
+        public ObjectPool(GameObject _prefab, int _size, Transform _parent)
         {
             m_prefab = _prefab;
             InitPool(_size, _parent);
@@ -15,14 +15,14 @@ namespace AudioManaging
         private Transform m_parent;
         private GameObject m_prefab;
 
-        private Queue<AudioObject> m_queue = new Queue<AudioObject>();
-        public AudioObject GetItem()
+        private Queue<T> m_queue = new Queue<T>();
+        public T GetItem()
         {
-            AudioObject tmp;
+            T tmp;
 
             if (m_queue.Count == 0)
             {
-                tmp = GameObject.Instantiate(m_prefab).GetComponent<AudioObject>();
+                tmp = GameObject.Instantiate(m_prefab).GetComponent<T>();
                 tmp.Initialize(this);
                 return tmp;
             }
@@ -33,7 +33,7 @@ namespace AudioManaging
             return tmp;
         }
 
-        public void ReturnItem(AudioObject _item)
+        public void ReturnItem(T _item)
         {
             _item.Deactivate();
             m_queue.Enqueue(_item);
@@ -43,10 +43,10 @@ namespace AudioManaging
         {
             for (int i = 0; i < _size; i++)
             {
-                AudioObject tmp = GameObject.Instantiate(m_prefab, _parent).GetComponent<AudioObject>();
+                T tmp = GameObject.Instantiate(m_prefab, _parent).GetComponent<T>();
                 tmp.Initialize(this);
                 m_queue.Enqueue(tmp);
             }
         }
-    } 
+    }
 }

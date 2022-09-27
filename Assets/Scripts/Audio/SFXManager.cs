@@ -9,7 +9,7 @@ namespace AudioManaging
     {
         private string m_tag = "SFXManager";
 
-        [SerializeField] private NotifyEntitySoundCollection m_entitySndRequests;
+        [SerializeField] private NotifyEntityRequestCollection m_entityRequests;
 
         [SerializeField] private AudioMixerGroup m_mixingGroup;
 
@@ -21,7 +21,7 @@ namespace AudioManaging
 
         private Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary<ESoundTypes>>> m_entityClipCollectionDictionary = new Dictionary<ESources, Dictionary<ESoundTypes, ClipLibrary<ESoundTypes>>>();
 
-        private AudioObjectPool m_pool;
+        private ObjectPool<AudioObject> m_pool;
         private void Awake()
         {
             GameObject[] objs = GameObject.FindGameObjectsWithTag(m_tag);
@@ -34,7 +34,7 @@ namespace AudioManaging
 
             DontDestroyOnLoad(this.gameObject);
 
-            m_pool = new AudioObjectPool(m_audioObjectPrefab, m_poolSize, transform);
+            m_pool = new ObjectPool<AudioObject>(m_audioObjectPrefab, m_poolSize, transform);
 
             foreach (EntityClipCollection ClipCollection in m_entityClipCollections)
             {
@@ -48,7 +48,7 @@ namespace AudioManaging
                 }
             }
 
-            m_entitySndRequests.OnAdd += OnEntitySound;
+            m_entityRequests.OnAdd += OnEntitySound;
         }
 
         private void OnEntitySound(EntityAudioRequest _request)
@@ -70,7 +70,7 @@ namespace AudioManaging
             tmpSource.Play();
             tmp.SetCountdown((int)(tmpSource.clip.length * 1000));
 
-            m_entitySndRequests.Remove(_request);
+            m_entityRequests.Remove(_request);
         }
     } 
 }

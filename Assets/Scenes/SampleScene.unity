@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1292ed14b9358c44fb39966d56d912da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundRequest: {fileID: 11400000, guid: 9bbacccf143dc944b8f6a3024475020c, type: 2}
+  m_entityRequests: {fileID: 11400000, guid: 0e2d97b0d3abafd4aa21a380b84e8098, type: 2}
   m_mixingGroup: {fileID: 24300002, guid: cf499f04282f4394aaf6fd3f5b41ab8a, type: 2}
   m_poolSize: 20
   m_audioObjectPrefab: {fileID: 817261557255131675, guid: 01815ba0c25742b4aabcb4396ac44572, type: 3}
-  m_clipCollections:
+  m_entityClipCollections:
   - {fileID: 11400000, guid: 770d3c7bbab054347b480a83a2dcf415, type: 2}
 --- !u!4 &630146240
 Transform:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef412cf9c68c04b9d2cb9724260616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundRequest: {fileID: 11400000, guid: 9bbacccf143dc944b8f6a3024475020c, type: 2}
+  m_sndRequests: {fileID: 11400000, guid: 0e2d97b0d3abafd4aa21a380b84e8098, type: 2}
 --- !u!4 &1430294767
 Transform:
   m_ObjectHideFlags: 0

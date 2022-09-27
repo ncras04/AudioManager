@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AudioManaging
 {
-    [CreateAssetMenu(fileName = "EntityClipCollection", menuName = "Audio/New EntityClipCollection", order = 0)]
+    [CreateAssetMenu(fileName = "EntityClipCollection", menuName = "Audio/New Entity Clip Collection", order = 0)]
     public class EntityClipCollection : ClipCollection<ESources, ESoundTypes>
     {
 

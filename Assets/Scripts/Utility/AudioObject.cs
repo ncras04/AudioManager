@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace AudioManaging
 {
-    public class AudioObject : MonoBehaviour, IPoolable
+    public class AudioObject : MonoBehaviour, IPoolable<AudioObject>
     {
         public AudioSource Source => m_source;
 
-        private AudioObjectPool m_pool;
+        private ObjectPool<AudioObject> m_pool;
         private AudioSource m_source;
 
         public async void SetCountdown(int _delay)
@@ -22,7 +22,7 @@ namespace AudioManaging
             }
         }
 
-        public void Initialize(AudioObjectPool _pool)
+        public void Initialize(ObjectPool<AudioObject> _pool)
         {
             m_pool = _pool;
             m_source = GetComponent<AudioSource>();
