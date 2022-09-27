@@ -57,8 +57,8 @@ namespace Audio
             AudioSource tmpSource = tmp.Source;
             ClipLibrary library = m_clipCollectionDictionaries[_request.Source][_request.Type];
             tmp.name = $"{_request.Source} {_request.Type}-Sound";
-            //TODO: tmp.transform.parent = transform; auslagern;
 
+            tmp.transform.parent = _request.Parent;
             tmp.transform.position = _request.Position;
 
             //Beim Object init schon setzen, falls nur ein SFX output

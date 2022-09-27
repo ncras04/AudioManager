@@ -11,6 +11,8 @@ namespace Audio
             m_prefab = _prefab;
             InitPool(_size);
         }
+
+        private Transform m_parent;
         private GameObject m_prefab;
 
         private Queue<AudioObject> m_queue = new Queue<AudioObject>();

@@ -10,12 +10,18 @@ namespace Audio
         public ESoundTypes Type { get; }
 
         public bool IsRandomizable { get; }
+        public Transform Parent { get;  }
         public Vector3 Position { get; }
 
-        private SoundRequest(ESources _source, ESoundTypes _type, Vector3 _pos, bool _rnd)
+        public static SoundRequest Request(ESources _source, ESoundTypes _type, Transform _parent)
+        {
+            return new SoundRequest(_source, _type, _parent, _parent.position, false);
+        }
+        private SoundRequest(ESources _source, ESoundTypes _type, Transform _parent, Vector3 _pos, bool _rnd)
         {
             Source = _source;
             Type = _type;
+            Parent = _parent;
             Position = _pos;
             IsRandomizable = _rnd;
         }
